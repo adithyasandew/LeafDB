@@ -33,6 +33,12 @@ void newdb(const char *db_name)
     }
 }
 
+void dbs()
+{
+    system("ls -1 ./data 2>/dev/null | awk '{print \"- \"$0}'");
+}
+
+
 int main() {
     return 0;
 }

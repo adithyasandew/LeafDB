@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 // Function to create a new database (folder in ./data)
 void newdb(const char *db_name)
 {
@@ -35,6 +34,5 @@ void newdb(const char *db_name)
 }
 
 int main() {
-    
     return 0;
 }

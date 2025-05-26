@@ -35,7 +35,7 @@ void newdb(const char *db_name)
 
 void dbs()
 {
-    system("ls -1 ./data 2>/dev/null");
+    system("ls -1 ./data 2>/dev/null | awk '{print \"- \"$0}'");
 }
 
 

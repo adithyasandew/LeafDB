@@ -63,6 +63,13 @@ void use(const char *db_name)
 
 void newCollection(const char *collection_name)
 {
+
+    if (!is_db_selected())
+    {
+        printf("No database selected. Use a database first.\n");
+        return;
+    }
+    
     char path[512];
     snprintf(path, sizeof(path), "./data/%s/%s.json", current_db, collection_name);
 

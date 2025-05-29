@@ -60,6 +60,35 @@ void use(const char *db_name)
     }
 }
 
+
+void newCollection(const char *collection_name)
+{
+    char path[512];
+    snprintf(path, sizeof(path), "./data/%s/%s.json", current_db, collection_name);
+
+    // Check if collection already exists
+    char check_cmd[600];
+    snprintf(check_cmd, sizeof(check_cmd), "[ -f \"%s\" ]", path);
+    if (system(check_cmd) == 0)
+    {
+        printf("Collection '%s' already exists in database '%s'.\n", collection_name, current_db);
+        return;
+    }
+
+    // Create the collection as an empty JSON array
+    char create_cmd[600];
+    snprintf(create_cmd, sizeof(create_cmd), "echo '[]' > \"%s\"", path);
+    if (system(create_cmd) == 0)
+    {
+        printf("Collection '%s' created successful.\n", collection_name);
+    }
+    else
+    {
+        printf("Failed to create collection '%s'.\n", collection_name);
+    }
+}
+
+
 int main() {
     return 0;
 }
